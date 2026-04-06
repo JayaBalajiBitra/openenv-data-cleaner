@@ -1,29 +1,50 @@
-# Data Cleaning OpenEnv Environment
+# 🧠 OpenEnv Data Cleaning Environment
 
-## Overview
-This project implements a real-world OpenEnv environment for data cleaning tasks.
+## 📌 Overview
+This project implements a real-world OpenEnv environment where an AI agent performs data cleaning tasks such as handling missing values, removing duplicates, and improving data consistency.
 
-The agent interacts with the environment using step(), reset(), and state() APIs.
+The environment follows the OpenEnv specification with structured APIs (`step`, `reset`, `state`) and supports automated evaluation using graders.
 
-## Features
-- Real-world dataset simulation
-- 3 tasks: easy, medium, hard
+---
+
+## 🚀 Features
+- Real-world data cleaning simulation
+- OpenEnv-compliant environment design
+- 3 difficulty levels:
+  - Easy → Missing values
+  - Medium → Missing values + duplicates
+  - Hard → Full cleaning + formatting
 - Reward system with partial scoring
-- Baseline agent for evaluation
+- Deterministic graders (0.0 → 1.0)
+- Baseline agent for reproducible evaluation
 - FastAPI endpoints for interaction
+- Dockerized for deployment
 
-## Tasks
-- Easy: Remove missing values
-- Medium: Remove missing values and duplicates
-- Hard: Full cleaning including formatting
+---
 
-## API Endpoints
-- /tasks → List tasks
-- /baseline → Run baseline agent
-- /grader → Get scores
+## 🧪 Tasks
 
-## Setup
+### 🟢 Easy
+Remove missing values from dataset
+
+### 🟡 Medium
+Remove missing values and duplicates
+
+### 🔴 Hard
+Perform full data cleaning including formatting consistency
+
+---
+
+## ⚙️ API Endpoints
+
+- `/tasks` → List available tasks  
+- `/baseline` → Run baseline agent  
+- `/grader` → Evaluate task performance  
+
+---
+
+## ▶️ Run Locally
 
 ```bash
-pip install -r requirements.txt
+pip install pydantic fastapi uvicorn pandas
 uvicorn main:app --reload
