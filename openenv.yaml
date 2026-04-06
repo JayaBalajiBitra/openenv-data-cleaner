@@ -1,0 +1,29 @@
+name: data-cleaning-openenv
+description: >
+  An OpenEnv environment simulating real-world data cleaning tasks.
+  The agent performs actions like removing nulls, duplicates, and improving data quality.
+
+version: 1.0
+
+entrypoint: main:app
+
+tasks:
+  - name: easy
+    description: Remove missing values from dataset
+  - name: medium
+    description: Remove missing values and duplicates
+  - name: hard
+    description: Full data cleaning including formatting
+
+actions:
+  - remove_nulls
+  - remove_duplicates
+  - finish
+
+observation:
+  type: dataset preview + issues + steps + quality
+
+reward:
+  description: >
+    Reward is based on data cleaning quality improvements.
+    Penalizes wrong actions and rewards efficient completion.
